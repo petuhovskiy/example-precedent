@@ -48,6 +48,7 @@ export default function Home() {
           <Gist
             id={it.gist.id}
             hintData={it.gist}
+            key={it.gist.id}
           />
         ))}
         <CreateGist />

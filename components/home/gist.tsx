@@ -10,7 +10,7 @@ export default function Gist({
     hintData
 }: {
     id: string;
-    hintData: Gist | undefined;
+    hintData: Gist | undefined | null;
 }) {
     const [data, setData] = useState({gist: hintData ?? {filename: "", content: ""}, editable: false, loading: true});
 
@@ -78,7 +78,7 @@ export default function Gist({
         setEditing(false);
     };
 
-    const handleContentChange = (event) => {
+    const handleContentChange = (event: any) => {
         setUpdatedContent(event.target.value);
     };
 

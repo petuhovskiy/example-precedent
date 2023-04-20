@@ -13,7 +13,7 @@ export function InputForm() {
   // const { data: session } = useSession();
   // const router = useRouter();
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: any) => {
     event.preventDefault();
     try {
       const response = await fetch('/api/gist', {

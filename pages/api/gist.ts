@@ -4,7 +4,7 @@ import prisma, { Prisma } from "@/lib/prisma";
 
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-export async function getUser(req: NextApiRequest, res: NextApiResponse): Promise<Prisma.User | null> {
+export async function getUser(req: NextApiRequest, res: NextApiResponse): Promise<any | null> {
     const session = await getServerSession(req, res, authOptions)
     if (!session) {
         return null;
@@ -42,7 +42,7 @@ export async function handleLatestGists(req: NextApiRequest, res: NextApiRespons
         take: 10,
     });
 
-    res.send(gists.map((gist) => gistResponse(gist, user)));
+    res.send(gists.map((gist: any) => gistResponse(gist, user)));
 }
 
 async function handleGetGist(req: NextApiRequest, res: NextApiResponse, user: any) {
@@ -62,7 +62,7 @@ async function handleGetGist(req: NextApiRequest, res: NextApiResponse, user: an
     res.send(gistResponse(gist, user));
 }
 
-function gistResponse(gist: Prisma.Gist, user: any) {
+function gistResponse(gist: any, user: any) {
     return {
         gist: gist,
         editable: user?.id === gist.authorId,

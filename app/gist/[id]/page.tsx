@@ -18,7 +18,7 @@ export default async function GistCard({
     <>
       <div className="z-10 w-full grid grid-cols-6 gap-4">
         <div className="col-start-2 col-span-4">
-            <Gist id={params.id}/>
+            <Gist id={params.id} hintData={null}/>
         </div>
       </div>
     </>
